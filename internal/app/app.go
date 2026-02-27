@@ -28,6 +28,17 @@ func NewApp() *App {
 		}
 	})
 
+	mux.HandleFunc("/tasks/", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodPatch:
+			h.CompleteTask(w, r)
+		case http.MethodDelete:
+			h.DeleteTask(w, r)
+		default:
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
+
 	return &App{mux: mux}
 }
 

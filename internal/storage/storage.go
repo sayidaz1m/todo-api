@@ -44,3 +44,28 @@ func (s *MemoryStorage) CreateTask(title string) model.Task {
 
 	return task
 }
+
+func (s *MemoryStorage) CompleteTask(id int) (model.Task, bool) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	task, ok := s.tasks[id]
+	if !ok {
+		return model.Task{}, false
+	}
+
+	task.Completed = true
+	s.tasks[id] = task
+	return task, true
+}
+
+func (s *MemoryStorage) DeleteTask(id int) bool {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	if _, ok := s.tasks[id]; !ok {
+		return false
+	}
+	delete(s.tasks, id)
+	return true
+}

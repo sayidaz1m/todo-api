@@ -20,3 +20,11 @@ func (s *TaskService) GetTasks() []model.Task {
 func (s *TaskService) CreateTask(title string) model.Task {
 	return s.storage.CreateTask(title)
 }
+
+func (s *TaskService) CompleteTask(id int) (model.Task, bool) {
+	return s.storage.CompleteTask(id)
+}
+
+func (s *TaskService) DeleteTask(id int) bool {
+	return s.storage.DeleteTask(id)
+}
