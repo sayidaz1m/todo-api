@@ -73,19 +73,26 @@ function App() {
           <li key={t.id} style={{ marginTop: 10 }}>
             {t.title} — {t.completed ? "done" : "open"}
 
-            <button
-              onClick={() => completeTask(t.id)}
-              style={{ marginLeft: 10 }}
-            >
+            <button onClick={() => completeTask(t.id)} style={{ marginLeft: 10 }}>
               ✔
             </button>
 
-            <button
-              onClick={() => deleteTask(t.id)}
-              style={{ marginLeft: 6 }}
-            >
+            <button onClick={() => deleteTask(t.id)} style={{ marginLeft: 6 }}>
               🗑
             </button>
+
+            <div style={{ fontSize: 12, opacity: 0.7 }}>
+              created: {
+                new Date(t.created_at).toLocaleString()
+              }
+            </div>
+            
+            {t.completed_at && (
+              <div style={{ fontSize: 12, opacity: 0.7 }}>
+                completed: {new Date(t.completed_at).toLocaleString()}
+              </div>
+            )}
+            
           </li>
         ))}
       </ul> 

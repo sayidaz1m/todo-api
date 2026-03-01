@@ -3,6 +3,7 @@ package storage
 import (
 	"sync"
 	"task-api/internal/model"
+	"time"
 )
 
 type MemoryStorage struct {
@@ -37,6 +38,7 @@ func (s *MemoryStorage) CreateTask(title string) model.Task {
 		ID:        s.id,
 		Title:     title,
 		Completed: false,
+		CreatedAt: time.Now().UTC(),
 	}
 
 	s.tasks[s.id] = task
@@ -54,7 +56,9 @@ func (s *MemoryStorage) CompleteTask(id int) (model.Task, bool) {
 		return model.Task{}, false
 	}
 
+	now := time.Now()
 	task.Completed = true
+	task.CompletedAt = &now
 	s.tasks[id] = task
 	return task, true
 }
