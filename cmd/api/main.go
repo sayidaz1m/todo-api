@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	log.Println("NEW VERSION RUNNING")
+	log.Println("---!!!SERVER RUNNING!!!---")
 	app := app.NewApp()
 	log.Fatal(app.Run())
 }
