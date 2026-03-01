@@ -1,18 +1,17 @@
 # 🧠 Todo-Api (Go + React + Docker)
 
-Production-style full-stack task manager built with **Go**, **React**, and **Docker**.
-Implements REST API, layered backend architecture, timestamps, and modern frontend.
+Full-stack task manager built with Go, React, and Docker.
+Demonstrates REST API design and layered backend architecture.
 
 ---
 
 ## 🚀 Features
 
 * ✅ RESTful API (CRUD)
-* 🧱 Clean backend architecture (handler → service → storage)
 * 🐳 Dockerized backend
 * ⚛️ React frontend (Vite)
 * 🕒 Task timestamps (created / completed)
-* 🎨 Simple UI with validation
+* 🎨 Simple UI
 * 🌐 CORS support
 
 ---
@@ -29,8 +28,9 @@ todo-api/
  │   ├─ storage      # data layer
  │   └─ model        # domain models
  ├─ web              # React frontend
+ ├─ README.md
  ├─ Dockerfile
- └─ README.md
+ └─ go.mod 
 ```
 
 ---
