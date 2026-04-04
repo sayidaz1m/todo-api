@@ -1,4 +1,4 @@
-# 🧠 Todo-Api (Go + React + Docker)
+# 🧠 Todo-Api 
 
 Full-stack task manager built with Go, React, and Docker.
 Demonstrates REST API design and layered backend architecture.
